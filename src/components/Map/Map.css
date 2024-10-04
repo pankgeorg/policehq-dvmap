@@ -1,0 +1,16 @@
+.map {
+  width: 70vw;
+  height: 60vh;
+  margin: auto;
+}
+
+@media screen and (max-width: 900px) {
+  .map {
+    width: 90vw;
+    margin: auto;
+  }
+}
+
+.map > .leaflet-container {
+  height: 100%;
+}
