@@ -26,7 +26,7 @@ function App() {
         </p>}
       </div>
       <p className="read-the-docs">
-        από την silentech 🐦‍⬛ για την Ελληνική Αστυνομία ©️ 2024
+         🐦‍⬛ 
       </p>
     </>
   )
