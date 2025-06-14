@@ -106,7 +106,7 @@ const Map = ({
         <div className="map">
             <MapContainer center={position} zoom={7}>
                 <TileLayer
-                    attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                    attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors. Marker data by the <a href="https://www.gov.gr/">Greek Government</a>.'
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                 />
                 {markers}

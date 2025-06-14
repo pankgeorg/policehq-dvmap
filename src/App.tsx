@@ -11,8 +11,8 @@ function App() {
   return (
     <>
       <h3>Γραφεία αντιμετώπισης ενδοοικογενειακής βίας | Ελληνική Αστυνομία 🇬🇷</h3>
-      {loading && !error ? "Loading..." : <Map closest={closest as (PoliceDepartment | null)} setClosest={setClosest as Function} defaultPosition={defaultPosition as GeolocationCoordinates} data={data as Array<PoliceDepartment>} />}
-      {error && `Error happened 😓`}
+      {loading && !error ? "Φόρτωση σημείων..." : <Map closest={closest as (PoliceDepartment | null)} setClosest={setClosest as Function} defaultPosition={defaultPosition as GeolocationCoordinates} data={data as Array<PoliceDepartment>} />}
+      {error && `Κάτι πήγε στραβά 😓`}
       <div className="card">
         {(!position || locationError) && <button onClick={() => (requestPosition as Function)()}>
           Εύρεση κοντινότερου σημείου

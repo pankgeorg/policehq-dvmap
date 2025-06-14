@@ -66,3 +66,9 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+a[href="https://leafletjs.com"],
+a[href="https://leafletjs.com"] ~ span[aria-hidden="true"]
+{
+  display: none !important;
+}
