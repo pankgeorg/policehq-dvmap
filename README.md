@@ -6,6 +6,7 @@
 
 ### Χάρτης Γραφείων Ενδοοικογενειακής Βίας
 
+- Βρείτε το χάρτη [εδώ](https://www.astynomia.gr/odigos-tou-politi/chrisimes-symvoules/endooikogeneiaki-via/)
 - Παρουσίαση των 63 γραφείων στο χάρτη
 - Εύρεση κοντινότερου σημείου
 - Δεδομένα στο [google sheet](https://docs.google.com/spreadsheets/d/1HCYR-WoigTcuZkRvrqAd39m2ngRzxnHr9rk5kkG3Nno/edit?gid=0#gid=0)
