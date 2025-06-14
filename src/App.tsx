@@ -11,12 +11,14 @@ function App() {
   return (
     <>
       <h3>Γραφεία αντιμετώπισης ενδοοικογενειακής βίας | Ελληνική Αστυνομία 🇬🇷</h3>
+      <div className='button-wrapper'>
+        {(!position || locationError) && <button onClick={() => (requestPosition as Function)()}>
+           Εύρεση κοντινότερου σημείου📍
+        </button>}
+      </div>
       {loading && !error ? "Φόρτωση σημείων..." : <Map closest={closest as (PoliceDepartment | null)} setClosest={setClosest as Function} defaultPosition={defaultPosition as GeolocationCoordinates} data={data as Array<PoliceDepartment>} />}
       {error && `Κάτι πήγε στραβά 😓`}
       <div className="card">
-        {(!position || locationError) && <button onClick={() => (requestPosition as Function)()}>
-          Εύρεση κοντινότερου σημείου
-        </button>}
         {(position) && <button onClick={() => (resetMap as Function)() && (reset as Function)()}>
           Επαναφορά
         </button>}<br />
