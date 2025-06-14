@@ -8,3 +8,8 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
     <App />
   </React.StrictMode>,
 )
+
+if(window.top !== window.self){
+  const root = document.getElementById('root')
+  if(root) root.classList.add("embedded")
+}
