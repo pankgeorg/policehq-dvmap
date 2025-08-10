@@ -13,7 +13,7 @@ export type PoliceDepartment = {
   id: number;
 };
 
-const dataURL = `https://docs.google.com/spreadsheets/d/e/2PACX-1vTPicZ8zN2wMiXGdj76W4oOyO-xQiIl47jJ8kD-SQgQgHgYyzpIOyngJNBzcN1mFphpNvGLTVwBBNPe/pub?gid=0&single=true&output=tsv`;
+let dataURL = `https://stage-astynomia.dataqube.gr/wp-json/dvom/v2/tsv`;
 export const usePoliceDepartmentLocationDataHook = (): [
   Boolean,
   Array<PoliceDepartment>,
@@ -45,7 +45,7 @@ export const usePoliceDepartmentLocationDataHook = (): [
                 (acc as any)[currentKey] = items[currentIndex];
                 return acc;
               },
-              {},
+              {}
             );
           })
           .map(({ lon, lat, ...rest }: any) => ({
