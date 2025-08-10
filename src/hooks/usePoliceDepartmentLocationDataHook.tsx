@@ -45,7 +45,7 @@ export const usePoliceDepartmentLocationDataHook = (): [
                 (acc as any)[currentKey] = items[currentIndex];
                 return acc;
               },
-              {}
+              {},
             );
           })
           .map(({ lon, lat, ...rest }: any) => ({
