@@ -32,8 +32,7 @@ const MapDataHandler = ({
         defaultPosition?.longitude,
     ] as LatLngTuple;
     useEffect(() => {
-        if (map && defaultPosition) {
-            if (data) {
+        if (map && defaultPosition && data) {
                 let y = (data as Array<PoliceDepartment>).map((datum) => {
                     const pointTo = { lat: datum.lat, lng: datum.lon };
                     return Math.round(map.distance(coords, pointTo));
@@ -51,18 +50,17 @@ const MapDataHandler = ({
                 return () => {
                     newMarker.removeFrom(map);
                 };
-            }
         }
         const policeDepartment = (data as Array<PoliceDepartment>)[0];
         if (policeDepartment && policeDepartment)
             map.flyTo({ lat: policeDepartment.lat, lng: policeDepartment.lon }, 11);
     }, [map, defaultPosition, data]);
     if (!defaultPosition)
-        return <Marker icon={redMarker} position={[0, 0]} key="user"></Marker>;
+        return null;
     console.log({ closest });
     return (
         <>
-            {closest && (
+            {closest && closest.lat > 0 && (
                 <Marker position={[closest.lat, closest.lon]} key={`closest-map`}>
                     <OfficePopup department={closest as unknown as PoliceDepartment} />
                 </Marker>
