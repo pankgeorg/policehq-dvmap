@@ -1,3 +1,5 @@
+html,
+body,
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -7,10 +9,19 @@
   color: rgba(255, 255, 255, 0.87);
   background-color: #242424;
 
+  /* disabling dark mode */
+  color: #213547;
+  background-color: #ffffff;
+
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+button {
+  /* overrides 'buttontext' which is theme specific */
+  color: #213547;
 }
 
 a {
@@ -20,6 +31,9 @@ a {
 }
 a:hover {
   color: #535bf2;
+
+  /* disabling dark mode */
+  color: #747bff;
 }
 
 body {
@@ -43,6 +57,8 @@ button {
   font-weight: 500;
   font-family: inherit;
   background-color: #1a1a1a;
+  /* disabling dark mode */
+  background-color: #f9f9f9;
   cursor: pointer;
   transition: border-color 0.25s;
 }
@@ -54,18 +70,19 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+/* Disabling light mode theming, essentially disabling dark mode*/
+/* @media (prefers-color-scheme: light) {*/
+:root {
+  color: #213547;
+  background-color: #ffffff;
 }
+a:hover {
+  color: #747bff;
+}
+button {
+  background-color: #f9f9f9;
+}
+/*}*/
 
 a[href="https://leafletjs.com"],
 a[href="https://leafletjs.com"] ~ span[aria-hidden="true"]
