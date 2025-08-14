@@ -1,37 +1,57 @@
-import './App.css'
-import Map from './components/Map/Map'
-import { DepartmentTemplate } from './components/Map/OfficePopup'
-import { useLocation } from './hooks/useLocation'
-import { type PoliceDepartment, usePoliceDepartmentLocationDataHook } from './hooks/usePoliceDepartmentLocationDataHook'
+import "./App.css";
+import Map from "./components/Map/Map";
+import { DepartmentTemplate } from "./components/Map/OfficePopup";
+import { useLocation } from "./hooks/useLocation";
+import {
+  type PoliceDepartment,
+  usePoliceDepartmentLocationDataHook,
+} from "./hooks/usePoliceDepartmentLocationDataHook";
 
 function App() {
-  const [loading, data, error, reset, closest, setClosest] = usePoliceDepartmentLocationDataHook()
-  const [requestPosition, position, locationError, resetMap] = useLocation()
-  const defaultPosition = position ?? undefined
+  const [loading, data, error, reset, closest, setClosest] =
+    usePoliceDepartmentLocationDataHook();
+  const [requestPosition, position, locationError, resetMap] = useLocation();
+  const defaultPosition = position ?? undefined;
   return (
     <>
-      <h3>Γραφεία αντιμετώπισης ενδοοικογενειακής βίας | Ελληνική Αστυνομία 🇬🇷</h3>
-      <div className='button-wrapper'>
-        {(!position || locationError) && <button onClick={() => (requestPosition as Function)()}>
-           Εύρεση κοντινότερου σημείου📍
-        </button>}
+      <h3>
+        Γραφεία αντιμετώπισης ενδοοικογενειακής βίας | Ελληνική Αστυνομία 🇬🇷
+      </h3>
+      <div className="button-wrapper">
+        {(!position || locationError) && (
+          <button onClick={() => (requestPosition as Function)()}>
+            Εύρεση κοντινότερου σημείου📍
+          </button>
+        )}
       </div>
-      {loading && !error ? "Φόρτωση σημείων..." : <Map closest={closest as (PoliceDepartment | null)} setClosest={setClosest as Function} defaultPosition={defaultPosition as GeolocationCoordinates} data={data as Array<PoliceDepartment>} />}
+      {loading && !error ? (
+        "Φόρτωση σημείων..."
+      ) : (
+        <Map
+          closest={closest as PoliceDepartment | null}
+          setClosest={setClosest as Function}
+          defaultPosition={defaultPosition as GeolocationCoordinates}
+          data={data as Array<PoliceDepartment>}
+        />
+      )}
       {error && `Κάτι πήγε στραβά 😓`}
       <div className="card">
-        {(position) && <button onClick={() => (resetMap as Function)() && (reset as Function)()}>
-          Επαναφορά
-        </button>}<br />
-        {closest && <DepartmentTemplate department={closest as any as PoliceDepartment} />}
-        {false && <p>
-          (οδηγίες)
-        </p>}
+        {position && (
+          <button
+            onClick={() => (resetMap as Function)() && (reset as Function)()}
+          >
+            Επαναφορά
+          </button>
+        )}
+        <br />
+        {closest && (
+          <DepartmentTemplate department={closest as any as PoliceDepartment} />
+        )}
+        {false && <p>(οδηγίες)</p>}
       </div>
-      <p className="read-the-docs">
-         🐦‍⬛ 
-      </p>
+      <p className="read-the-docs">🐦‍⬛</p>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
